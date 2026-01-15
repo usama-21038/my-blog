@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({blog}) => {
+const Blog = ({blog,handleBookmark,handleReadingTime}) => {
   
   //distructuring props
     // const {blog}=props;
@@ -24,7 +24,7 @@ const Blog = ({blog}) => {
     <img src={blog.authorImage} />
   </div>
 </div>
-<FaBookmark  size={25}/>
+<button onClick={()=>handleBookmark(blog)}><FaBookmark size={25}/></button>
     </div>
     <h2 className="card-title">{blog.title}</h2>
     <p>{blog.description}</p>
@@ -35,7 +35,7 @@ const Blog = ({blog}) => {
     </div>
     <div className="card-actions flex gap-4">
 
-      <button className="btn btn-primary">Mark as Read</button>
+      <button onClick={()=>handleReadingTime(blog.readingTime)} className="btn btn-primary">Mark as Read</button>
     </div>
   </div>
 </div>

@@ -30,7 +30,7 @@ const Blog = ({blog,handleBookmark,handleReadingTime}) => {
     <p>{blog.description}</p>
     <div className="flex gap-1">
         {
-    blog.hashtag.map((has)=><p>{has}</p>)
+    blog.hashtag.map((has)=><p key={has}>{has}</p>)
     }
     </div>
     <div className="card-actions flex gap-4">

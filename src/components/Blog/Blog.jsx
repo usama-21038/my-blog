@@ -35,7 +35,7 @@ const Blog = ({blog,handleBookmark,handleReadingTime}) => {
     </div>
     <div className="card-actions flex gap-4">
 
-      <button onClick={()=>handleReadingTime(blog.readingTime)} className="btn btn-primary">Mark as Read</button>
+      <button onClick={()=>handleReadingTime(blog.readingTime,blog.id)} className="btn btn-primary">Mark as Read</button>
     </div>
   </div>
 </div>

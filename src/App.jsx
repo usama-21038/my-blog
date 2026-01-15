@@ -8,20 +8,22 @@ function App() {
 
 
   const [bookmarked,setBookmarked]=useState([]);
-
-
   const handleBookmark=(data)=>{
     setBookmarked([...bookmarked,data]);
   }
-  // console.log(bookmarked);
 
   const [readingTime,setReadingTime]=useState(0);
-
-  const handleReadingTime=(time)=>{
+  const handleReadingTime=(time,id)=>{
      const newTime=readingTime+time;
       setReadingTime(newTime);
+      // console.log(id);  
+      handleRemoveFromBookmark(id);
   }
-  console.log(readingTime);
+
+  const handleRemoveFromBookmark=(id)=>{
+    const remainingBookmarks=bookmarked.filter((mark)=>mark.id!==id);
+    setBookmarked(remainingBookmarks);
+  }
 
   return (
     <>
@@ -35,7 +37,7 @@ function App() {
               <h1>Reading time: {readingTime}</h1>
               <h1>Bookmarked count: {bookmarked.length}</h1>
               {
-                 bookmarked.map((marked)=><p>{marked.title}</p>)
+                 bookmarked.map((marked)=><p key={marked.id} className='bg-red-600 p-2 m-1 shadow text-white'>{marked.title}</p>)
               }
         </div>
     </div>
